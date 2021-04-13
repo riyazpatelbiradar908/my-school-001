@@ -2,12 +2,9 @@
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    $data = trim(file_get_contents("php://input"));
-    $data = json_decode($data, true);
-    
-    $username = $data['username'];
-    $password = $data['password'];
+        
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     if($username === 'admin' && $password === 'admin') {
         $res = [
             'status' => 200,
@@ -20,7 +17,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'Invalid credentials'
         ];
     }
-    $res = ['status' => 200, 'data' => $_POST];
     
 } else {
     $res = [
