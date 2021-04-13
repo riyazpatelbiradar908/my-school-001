@@ -20,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'Invalid credentials'
         ];
     }
+    $res = ['status' => 200, 'data' => $data];
     
 } else {
     $res = [
