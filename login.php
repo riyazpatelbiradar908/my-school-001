@@ -8,14 +8,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $username = (isset($data['username'])) ? $data['username'] : '';
     $password = (isset($data['password'])) ? $data['password'] : '';
-    $res = [
-        'status' => 200,
-        'token' => session_id(),
-        'message' => 'successfully logged in',        
-        'data' => $data,
-        'username' => $data['username'],
-        'usernameobj' => $data->username
-    ];
+    if($username === 'admin' && $password === 'admin') {
+        $res = [
+            'status' => 200,
+            'token' => session_id(),
+            'message' => 'successfully logged in'
+        ];
+    } else {
+        $res = [
+            'status' => 404,
+            'message' => 'Invalid credentials'
+        ];
+    }    
 } else {
   $res = [
         'status' => 404,
