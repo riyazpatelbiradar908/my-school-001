@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         'message' => 'successfully logged in',        
         'data' => $data,
         'username' => $data['username'],
-        'usernameobj' => $data->username;
+        'usernameobj' => $data->username
     ];
 } else {
   $res = [
