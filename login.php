@@ -4,7 +4,6 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = trim(file_get_contents("php://input"));
-    $data = json_decode($data, true);
     
     $username = (isset($data['username'])) ? $data['username'] : '';
     $password = (isset($data['password'])) ? $data['password'] : '';
